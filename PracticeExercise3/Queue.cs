@@ -35,6 +35,26 @@ namespace PracticeExercise3
         {
             linkedList.AddLast(item);
         }
+
+        public override string ToString()
+        {
+            string result = "<Back> ";
+
+            var currentNode = linkedList.Last;
+            while (currentNode != null)
+            {
+                result += currentNode.Value;
+                if (currentNode.Previous != null)
+                {
+                    result += " → ";
+                }
+                currentNode = currentNode.Previous;
+            }
+
+            result += " <Front>";
+
+            return result;
+        }
     }
 }
 
