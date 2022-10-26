@@ -45,7 +45,7 @@ namespace UnitTests
             Assert.AreEqual(0, stack.Length);
 
 
-            Assert.ThrowsException<EmptyStackException>( () =>
+            Assert.ThrowsException<EmptyStackException>(() =>
             {
                 stack.Pop();
             });
@@ -164,8 +164,8 @@ namespace UnitTests
                 queue.Enqueue(i);
             }
 
-            Assert.AreEqual( 1, queue.Dequeue());
-            Assert.AreEqual( 2, queue.Dequeue());
+            Assert.AreEqual(1, queue.Dequeue());
+            Assert.AreEqual(2, queue.Dequeue());
 
             Assert.AreEqual(7, queue.Length);
             Assert.AreEqual("<Back> 9 → 8 → 7 → 6 → 5 → 4 → 3 <Front>", queue.ToString());
@@ -229,7 +229,7 @@ namespace UnitTests
 
             var queue = new PracticeExercise3.Queue<int>();
 
-            Assert.ThrowsException<EmptyQueueException>( () =>
+            Assert.ThrowsException<EmptyQueueException>(() =>
             {
                 int i = queue.First;
             });
@@ -242,7 +242,7 @@ namespace UnitTests
 
             Assert.AreEqual(10, queue.Length);
 
-            for(int i=0; i <10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Assert.AreEqual(i, queue.First);
                 queue.Dequeue();
@@ -423,7 +423,7 @@ namespace UnitTests
             // kenan
             Deque<int> deque = new Deque<int>();
 
-            deque.AddBack(1); 
+            deque.AddBack(1);
             deque.AddBack(2);
             deque.AddBack(3);
             deque.AddBack(4);

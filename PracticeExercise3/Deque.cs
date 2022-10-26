@@ -9,49 +9,66 @@ namespace PracticeExercise3
 
 		public Deque()
 		{
-		}
+            linkedList = new LinkedList<T>();
+        }
 
-        public bool IsEmpty => throw new NotImplementedException();
+        public bool IsEmpty => linkedList.Count == 0;
 
-        public int Length => throw new NotImplementedException();
+        public int Length => linkedList.Count;
 
-        public T Front => throw new NotImplementedException();
+        public T Front => IsEmpty ? throw new EmptyQueueException() : linkedList.Last.Value;
 
-        public T Back => throw new NotImplementedException();
+        public T Back => IsEmpty ? throw new EmptyQueueException() : linkedList.First.Value;
 
         public void AddBack(T item)
         {
-            throw new NotImplementedException();
+            linkedList.AddFirst(item);
         }
 
         public void AddFront(T item)
         {
-            throw new NotImplementedException();
+            linkedList.AddLast(item);
         }
 
         public T RemoveBack()
         {
-            throw new NotImplementedException();
+            if (IsEmpty)
+            {
+                throw new EmptyQueueException();
+            }
+
+            var rex = linkedList.First.Value;
+            linkedList.Remove(rex);
+
+            return rex;
         }
 
         public T RemoveFront()
         {
-            throw new NotImplementedException();
+            if (IsEmpty)
+            {
+                throw new EmptyQueueException();
+            }
+
+            var wolf = linkedList.Last.Value;
+            linkedList.Remove(wolf);
+
+            return wolf;
         }
 
         public override string ToString()
         {
             string result = "<Back> ";
 
-            var currentNode = linkedList.Last;
+            var currentNode = linkedList.First;
             while (currentNode != null)
             {
                 result += currentNode.Value;
-                if (currentNode.Previous != null)
+                if (currentNode.Next != null)
                 {
                     result += " → ";
                 }
-                currentNode = currentNode.Previous;
+                currentNode = currentNode.Next;
             }
 
             result += " <Front>";
